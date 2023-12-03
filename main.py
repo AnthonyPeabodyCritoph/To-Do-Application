@@ -5,9 +5,10 @@ from add import Add
 from remove import Remove
 from edit import Edit
 from clear import Clear
+from file import File
 
 run = True
-list = {}
+list = File.initialiseList()
 print("Welcome to your to-do list! What would you like to do?\nHint: /help gives you all the commands you can use.")
 
 # Primary loop that manages the user interface using the above commands
@@ -45,3 +46,4 @@ while run == True:
             run = Exit.terminate()
         case _:
             print("Invalid command.")
+    File.saveList(list)
