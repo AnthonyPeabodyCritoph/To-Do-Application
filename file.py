@@ -8,7 +8,10 @@ class File:
         if os.path.exists(listDataPath):
             listData = open('list.txt', 'r')
             listRaw = listData.read()
-            list = json.loads(listRaw)
+            try:
+                list = json.loads(listRaw)
+            except json.decoder.JSONDecodeError:
+                list = {}
             return list
         else:
             list = {}
